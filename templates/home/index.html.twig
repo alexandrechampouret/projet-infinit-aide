@@ -1,0 +1,183 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Infinit'Aide
+{% endblock %}
+
+{% block body %}
+
+	<section class="banner d-flex justify-content-center align-items-center mx-auto pt-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-8">
+					<h1 class="animate__animated animate__backInLeft banner-desc">Infinit'Aide est la pour vous
+																	accompagner à chaque étapes de votre Deuil</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Embed-reponsive ect est la pour rendre la vidéo responsive -->
+	<section class="row mt-2">
+		<div class="col-12 col-md-4 pt-5">
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item ms-5" src="https://www.youtube.com/embed/PWXHkYMZ4LQ?list=RDPWXHkYMZ4LQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="col-12 col-md-8">
+
+			<p class="pre1">
+				Bienvenue à tous !<br>
+				Toute l’équipe de notre association Infinit’Aide est à votre service pour vous informer et vous
+				accompagner dans votre chemin de deuil
+				Vous y trouverez des vidéos, des articles, l’accès privatif à une communauté bienveillante et desparcours individualisés.
+				Tout est 100 % gratuit.<br>
+				Association Loi 1901 d’intérêt général à but non lucratif
+			</p>
+		</div>
+	</section>
+
+	<hr>
+
+	<h2 class="text-center pt-2">Comment ca marche ?
+	</h2>
+	<main class="row align-items-center mx-auto">
+		<div class="col-12 col-md-6 ">
+			<p class="pre1">
+				Des informations concrètes sur les démarches et les formalités à accomplir
+				<strong>pendant et après les obsèques.</strong><br>Avec un calendrier pour vous guider.
+			</p>
+		</div>
+		<div class="col-12 col-md-6 ">
+			<img class=" ms-5" src=" {{ asset('images/home-img.png')}} " alt="">
+		</div>
+	</main>
+
+	<hr class="hr2">
+
+	<main class="row mt-5">
+		<h2 class="text-center fs-2 text-uppercase pb-3">Repères pratiques</h2>
+		<div class="col-12 col-md-6 d-flex justify-content-center">
+			<i class="far fa-calendar-alt "></i>
+		</div>
+		<nav class="">
+			<ul class="col-12 col-md-6  pt-4 text-center">
+				<li class="exe">Calendrier des Demarches
+				</li>
+				<li class="exe">Que faire des objets</li>
+				<li class="exe">Organiser les obséques</li>
+			</ul>
+		</nav>
+	</main>
+
+	<hr class="hr3">
+
+	<main class="row mt-5">
+		<p class="text-center fs-2 text-uppercase pb-3">Se faire Aider</p>
+		<div class="col-12 col-md-6 d-flex justify-content-center">
+			<i class="fas fa-users"></i>
+		</div>
+		<nav class="">
+			<ul class="col-12 col-md-6 pt-4 text-center">
+				<li class="exe">Lignes d’écoute et de prévention générique</li>
+				<li class="exe">Associations d’accompagnement des enfants et jeunes en deuil</li>
+				<li class="exe">Comment solliciter de l’aide ?</li>
+			</ul>
+		</nav>
+	</main>
+
+	<article class="container-fluid ">
+		<h2 class="text-center text-uppercase pt-4 ">Notre contenu à la une</h2>
+		<div class="col mt-4 d-flex ">
+			<div class="card mx-auto border border-white w-50  d-flex  justify-content-start" >
+				<div class="card-body text-center bg ronded ">
+					<img src=" {{ asset('images/visage.jpg')}} " class="card-img-top w-100" alt="...">
+					<h5 class="card-title pt-3">Titre article</h5>
+					<p class="card-text">Text article</p>
+				</div>
+			</div>
+		</div>
+		<div class="col mt-4 d-flex ">
+			<div class="card mx-auto border border-white w-50 d-flex  justify-content-center" >
+				<div class="card-body text-center bg ronded ">
+					<img src=" {{ asset('images/0072.jpeg')}} " class="card-img-top w-100" alt="...">
+					<h5 class="card-title pt-3">Titre article</h5>
+					<p class="card-text">Text article</p>
+				</div>
+			</div>
+		</div>
+		<div class="col mt-4 pb-4 d-flex">
+			<div class="card mx-auto border border-white w-50 d-flex justify-content-end " >
+				<div class="card-body text-center bg ronded ">
+					<img src=" {{ asset('images/porte.jpg')}} " class="card-img-top w-100" alt="...">
+					<h5 class="card-title pt-3">Titre article</h5>
+					<p class="card-text">Text article</p>
+				</div>
+			</div>
+		</div>
+	</article>
+	<div class="row">
+		<div class="col-12 col-md-12 new d-flex flex-wrap justify-content-center">
+			<p class="text-center fs-1 fw-bolder">Rejoignez notre Newsletter</p>
+			<p class="text-center">Recevez nos articles pour vous aider à mieux traverser ou comprendre le deuil.</p>
+
+			<div class="col-10 col-md-6">
+				<div class="input-group">
+					<span class="input-group-text" id="inputGroupPrepend2">@</span>
+					<input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+					<button class="btn btn-light" type="submit">S'inscrire</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<figure class="container ">
+		<div class="row border border-dark mt-3" style="height: 100%;">
+			<div class="col-12 col-md-12 text-center">citation</div>
+			<cite class="text-center">Nom de l'auteur</cite>
+		</div>
+	</figure>
+
+
+	<!--#######Lien vers boite mail  et rediretion externe ########### -->
+	<p>Open link in a new window or tab:
+		<a href="https://www.w3schools.com" target="framename">Visit W3Schools!
+		</a>
+	</p>
+	<a href="mailto:champouret@laposte.net" target="-_blank">c'est par ici !</a>
+</p>
+
+
+<div
+	class="container-fluid">
+	<!--PLAN GOOGLE -->
+	<iframe class="" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2369050004445!2d2.4056142156748703!3d48.87276017928881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d9f2b3dccfb%3A0x33b16a556a5cbc18!2s89%20Rue%20Saint-Fargeau%2C%2075020%20Paris!5e0!3m2!1sfr!2sfr!4v1640733333910!5m2!1sfr!2sfr" width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<!--Fléche de retour en haut / d-flex utiliser pour placer la fléche a la gauche avec justify-content: end -->
+<i class="fas fa-arrow-circle-up d-flex mb-2" style="font-size: 40px; justify-content: end;"></i>
+<footer>
+	<div class="container">
+		<div class="row " style="justify-content: space-between; align-items: center;">
+			<div class="col-4 col-md-3">
+				<div class="list-inline">
+					<a href="">
+						<li class="fab fa-twitter fa-2x" style="color: var(--bs-orange)"></li>
+					</a>
+					<a href="https://www.facebook.com/profile.php?id=100075224844250">
+						<i class="fab fa-facebook fa-2x" style="color: var(--bs-orange)"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-4 col-md-3 text-center">
+				<a href="" class="nav-link" style="color:black">CGU</a>
+				<a href="" class="nav-link" style="color:black">Mention legale</a>
+			</div>
+			<div class="col-4 col-md-5 list-inline">
+				<div class="input-group">
+					<input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required placeholder="Votre Email">
+					<button class="btn btn-light rounded-pill" style="background-color: var(--bs-orange)" type="submit">S'inscrire</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+{% endblock %}
