@@ -32,13 +32,30 @@ class UserController extends AbstractController
         $formulaire->add('Envoyer', SubmitType::class, ['label' => 'Formulaire d\'inscription']);
         $formulaire->handleRequest($request);
         if ($formulaire->isSubmitted() && $formulaire->isValid()) {
+            // On recupére tout les données saisi par les  utilisateurs 
             $utilisateur = $formulaire->getData();
 
             // On hash le mot de passe
             $utilisateur->setMdp(sha1($formulaire->get('motdepasse')->getData()));
-
+            // on donne notre variable a entity manager et flush-> pousse dans la BDD 
             $entityManagerInterface->persist($utilisateur);
             $entityManagerInterface->flush();
+            // On a joute un message de confirmation
+            $this->addFlash("success", "Votre a bien était créé");
+            // On redirige vers la même page 
+            $this->redirectToRoute('home');
+    
+
         }
+        if ($formulaire->isSubmitted()){
+            // On gére les erreurs 
+            $this->addFlash("error", "Erreur Inscription");
+        }
+
+        // RENDU
+        return $this->render('user/index.html.twig', [
+            // 'user' => $user,
+            'form' => $formulaire->createView(),
+        ]);
     }
 }
