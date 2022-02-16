@@ -13,27 +13,27 @@ class Article
     /** 
     * @ORM\Id
     * @ORM\GeneratedValue
-    * @ORM\Column(type= 'integer')
+    * @ORM\Column(type= "integer")
     */
     private $id;
     
     /**
-     * @ORM\Column(type= 'string', length= 255)
+     * @ORM\Column(type= "string", length= 255)
      */
     private $titre;
 
     /**
-     * @ORM\Column(type= 'text')
+     * @ORM\Column(type= "text")
      */
     private $description;
 
     /**
-     * @ORM\Column(type= 'string', length= 255)
+     * @ORM\Column(type= "string", length= 255)
      */
     private $imagePath;
 
     /**
-     * @ORM\Column(type= 'datetime_immutable')
+     * @ORM\Column(type= "datetime_immutable")
      */
     private $updatedAt;
 

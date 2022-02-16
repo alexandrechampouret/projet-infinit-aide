@@ -13,27 +13,27 @@ class Association
     /** 
     * @ORM\Id
     * @ORM\GeneratedValue
-    * @ORM\Column(type= 'integer')
+    * @ORM\Column(type= "integer")
     */
     private $id;
 
     /**
-     * @ORM\Column(type= 'string', length= 255)
+     * @ORM\Column(type= "string", length= 255)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type= 'string', length= 255)
+     * @ORM\Column(type= "string", length= 255)
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type= 'integer')
+     * @ORM\Column(type= "integer")
      */
     private $numero;
 
     /**
-     * @ORM\Column(type= 'string', length= 255, nullable=true)
+     * @ORM\Column(type= "string", length= 255, nullable=true)
      */
     private $mail;
 

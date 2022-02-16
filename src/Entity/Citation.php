@@ -11,12 +11,12 @@ class Citation
     /** 
     * @ORM\Id
     * @ORM\GeneratedValue
-    * @ORM\Column(type= 'integer')
+    * @ORM\Column(type= "integer")
     */
     private $id;
 
     /**
-     * @ORM\Column(type= 'text')
+     * @ORM\Column(type= "text")
      */
     private $description;
 

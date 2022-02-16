@@ -6,31 +6,31 @@ use App\Repository\CalendrierDemarchesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass= CalendrierDemarchesRepository::class)
+ * @ORM\Entity(repositoryClass=CalendrierDemarchesRepository::class)
  */
 class CalendrierDemarches
 {
-    /** 
-    * @ORM\Id
-    * @ORM\GeneratedValue
-    * @ORM\Column(type= 'integer')
-    */
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private $id;
 
     /**
-     * @ORM\Column(type= 'datetime')
+     * @ORM\Column(type="datetime")
      */
-    private $dateDeces;
+    private $dateDece;
 
     /**
-     * @ORM\Column(type= 'string', length= 255)
+     * @ORM\Column(type="string", length=255)
      */
-    private $nomPrenomDeces;
+    private $nomPrenom;
 
     /**
-     * @ORM\OneToOne(inversedBy= 'calendrierDemarches', targetEntity= User::class, cascade= {'persist', 'remove'})
-    * @ORM\JoinColumn(nullable= false)
-    */
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="calendrierDemarches", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $relatedUser;
 
     public function getId(): ?int
@@ -38,26 +38,26 @@ class CalendrierDemarches
         return $this->id;
     }
 
-    public function getDateDeces(): ?\DateTimeInterface
+    public function getDateDece(): ?\DateTimeInterface
     {
-        return $this->dateDeces;
+        return $this->dateDece;
     }
 
-    public function setDateDeces(\DateTimeInterface $dateDeces): self
+    public function setDateDece(\DateTimeInterface $dateDece): self
     {
-        $this->dateDeces = $dateDeces;
+        $this->dateDece = $dateDece;
 
         return $this;
     }
 
-    public function getNomPrenomDeces(): ?string
+    public function getNomPrenom(): ?string
     {
-        return $this->nomPrenomDeces;
+        return $this->nomPrenom;
     }
 
-    public function setNomPrenomDeces(string $nomPrenomDeces): self
+    public function setNomPrenom(string $nomPrenom): self
     {
-        $this->nomPrenomDeces = $nomPrenomDeces;
+        $this->nomPrenom = $nomPrenom;
 
         return $this;
     }
