@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends AbstractController
 {
@@ -68,4 +69,79 @@ class UserController extends AbstractController
             'form' => $formulaire->createView(),
         ]);
     }
+
+    /** 
+    * @Route("/login", name= "connexion")
+    */
+    public function connexion(Request $request, EntityManagerInterface $entityManagerInterface, UserPasswordHasherInterface $userPasswordHasher)
+    {
+        
+        //récupere le user présent dans la session 
+        $userBd = $this->get('session')->get('user');
+        
+
+        if ($userBd == null){
+
+            
+            $formulaire = $this->createForm(UserType::class);
+            // Pour envoyer le formulaire (et ce qui apprait dans le bouton)
+            $formulaire->add('formulaire_connexion', SubmitType::class, ['label' => 'Connexion']);
+            $formulaire->handleRequest($request);
+            if ($formulaire->isSubmitted() && $formulaire->isValid()) {
+                // On recupére tout les données saisi par les  utilisateurs 
+                $utilisateur = $formulaire->getData();
+
+                // on recupére l'email saisi par l'utilisateur 
+                $userBd = $this->getUser($formulaire->get('email')->getData());
+                
+                // On hash le mot de passe saisi par l'user
+                $mdpHacher = $userPasswordHasher->hashPassword(
+                    $utilisateur,
+                    $formulaire->get('password')->getData()
+
+                );
+                //tu vas chercher la variable userBd = elle vient de l'entity (type) User 
+                /** @var $userBd User */
+                if ($userBd->getPassword() == $mdpHacher){
+
+                    // session = variable globale et je stock l'email de l'utilisateur 
+                    $this->get('session')->set('user', $userBd->getEmail());
+                }
+                else{
+                    $this->addFlash('error', 'Le mots de passe n\'est pas valide');
+                    // getUri= elle rafraichi la page aprés error de login 
+                    return $this->redirect($request->getUri());
+                }
+                $this->addFlash('succes', 'Vous êtes bien connecté');
+        
+            }
+
+            // RENDU
+            return $this->render('user/index.html.twig', [
+                'user' => $userBd,
+                'formLogin' => $formulaire->createView(),
+            ]);
+        }
+        else{
+
+            // test de la fonction
+            $this->addFlash('error', 'Vous etes déjà authentifié.');
+            return $this->render('user/index.html.twig', array('user' => $userBd));
+        }
+    }
+
+
+    // ?object = objet qui contient plusieurs type
+    // elle retourne tout les donnée d'un user dans la base donnée . 
+    public function getUser($email) : ?object {
+
+        // on retourne un objet de type user récupérer sur la base de donnée. et chercher avec le mail 
+        // Doctrine : librairie qui la base de donnée 
+        // manager entity manager 
+        
+        return $this->getDoctrine()->getManager()
+            ->getRepository('App:User')
+            ->findOneBy(array('email'=>$email));
+    }
+    
 }

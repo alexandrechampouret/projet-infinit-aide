@@ -22,7 +22,7 @@ class UserType extends AbstractType
             ->add('email', TextType::class)
             // ->add('roles')
             ->add('password', PasswordType::class)
-            ->add('abonnementNewsletter', ChoiceType::class, ['choices' => ['Oui' => true, 'Non' => false]])
+            ->add('abonnementNewsletter', ChoiceType::class, ['choices' => ['Oui' => true, 'Non' => false]]) // 
             // ->add('calendrierDemarches')
         ;
     }
