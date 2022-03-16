@@ -15,34 +15,33 @@
 		<link
 		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 		<!-- #### FOntAWESOME #### -->
-		<link
-		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 		<!-- #### FAVICON qui ma servie a generer mon logo  #### -->
-		<link
-		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		{# <link
+				rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/> #}
 		<!-- #### FAVICON #### -->
 		<link
-		rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
-		<!---  ##### CSS #######   -->
+		rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}"> <!---  ##### CSS #######   -->
 		<link rel="stylesheet" href="{{ asset('css/style-front.css') }}"> {% block stylesheets %}{% endblock %}
+
 
 		</head>
 		<!--######NAVBAR######-->
 		<body>
 			<header>
+				
 				<nav class="cc-navbar navbar navbar-expand-lg position-fixed navbar-dark w-100">
 					<div class="container-fluid">
-						<a class="navbar-brand text-uppercase mx-0 " href=" {{ path('home') }} ">
+						<a class="navbar-brand text-uppercase  mx-0 " href=" {{ path('home') }} ">
 							Infinit'Aide
 							<hr>
 						</a>
-
 						<img src=" {{ asset('images/Untitled.svg')}}" alt="">
 						<button class="navbar-toggler mx-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse">
-							<ul class="navbar-nav ms-auto  mb-lg-0">
+							<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 								<li class=" nav-item pe-2">
 									<a class="nav-link" aria-current="page" href="#">Contact
 									</a>
@@ -57,46 +56,47 @@
 									<a class="nav-link" href="#">Se faire Aider</a>
 								</li>
 							</ul>
+							
 						</div>
 					</div>
 				</nav>
 			</header>
-				<!--######FIN-NAVBAR######-->
+			<!--######FIN-NAVBAR######-->
 
-				<br>
-				
+			<br>
 
-					{% block body %}{% endblock %}
-					<footer>
-					<div class="container">
-						<div class="row " style="justify-content: space-between; align-items: center;">
-							<div class="col-4 col-md-3">
-								<div class="list-inline">
-									<a href="">
-										<li class="fab fa-twitter fa-2x" style="color: var(--bs-orange)"></li>
-									</a>
-									<a href="https://www.facebook.com/profile.php?id=100075224844250">
-										<i class="fab fa-facebook fa-2x" style="color: var(--bs-orange)"></i>
-									</a>
-								</div>
-							</div>
-							<div class="col-4 col-md-3 text-center">
-								<a href="" class="nav-link" style="color:black">CGU</a>
-								<a href="" class="nav-link" style="color:black">Mention legale</a>
-							</div>
-							<div class="col-4 col-md-5 list-inline">
-								<div class="input-group">
-									<input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required placeholder="Votre Email">
-									<button class="btn btn-light rounded-pill" style="background-color: var(--bs-orange)" type="submit">S'inscrire</button>
-								</div>
+
+			{% block body %}{% endblock %}
+			<footer>
+				<div class="container">
+					<div class="row " style=" align-items: center;">
+						<div class="col-2 col-md-4 d-flex" style="justify-content: center;">
+							<div class="list-inline">
+								<a href="">
+									<li class="fab fa-twitter fa-2x" style="color: var(--bs-orange)"></li>
+								</a>
+								<a href="https://www.facebook.com/profile.php?id=100075224844250">
+									<i class="fab fa-facebook fa-2x" style="color: var(--bs-orange)"></i>
+								</a>
 							</div>
 						</div>
-					</footer>
+						<div class="col-3 col-md-3 text-center">
+							<a href="" class="nav-link" style="color:black">CGU</a>
+							<a href="" class="nav-link" style="color:black">Mention legale</a>
+						</div>
+						<div class="col-7 col-md-5 list-inline">
+							<div class="input-group">
+								<input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required placeholder="Votre Email">
+								<button class="btn btn-light rounded-pill" style="background-color: var(--bs-orange)" type="submit">S'inscrire</button>
+							</div>
+						</div>
+					</div>
+				</footer>
 
-					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-					{% block javascripts %}{% endblock %}
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+				{% block javascripts %}{% endblock %}
 
-				
+
 			</body>
 		</body>
 	</html>
