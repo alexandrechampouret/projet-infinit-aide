@@ -48,7 +48,7 @@ body {
     font-size: 2rem;
 }
 .banner {
-    width: 100;
+    
     background: url("../images/Photo.jpg") center center fixed no-repeat;
     background-size: cover;
     height: 800px;
@@ -148,11 +148,11 @@ p {
 {
     background: url("../images/Foret2-flou.jpg") center center fixed no-repeat;
     color: var(--bs-white);
-    padding: 40px;
+    padding: 30px;
 }
 
 /* ====================================================== */
-/* ===================== NFOOTER ===================== */
+/* ===================== FOOTER ===================== */
 /* ====================================================== */
 
 footer
@@ -162,3 +162,49 @@ footer
     border-top-left-radius: 4rem;
 }
 
+/* ====================================================== */
+/* ===================== Media Queries ===================== */
+/* ====================================================== */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { ... }
+
+/* {%Medium devices (tablets, 768px and up)#} */
+@media (min-width: 768px) {
+    
+
+}
+
+/* {# Large devices (desktops, 992px and up)#} */
+@media (min-width: 992px) {
+    .banner .banner-desc{
+        font-size: 60px;
+    }
+    .new{
+        padding: 100px;
+    }
+    footer{
+        border-top-left-radius: 0rem;
+    }
+    /* REPERE PRATIQUE  */
+    .logo1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .p1{
+        font-size: 1.3rem;
+    }
+    .fa-calendar-alt.far{
+        font-size: 200px;
+        display: flex;
+        justify-content: center;
+    }
+    
+
+}
+
+/* {#  X-Large devices (large desktops, 1200px and up)#} */
+@media (min-width: 1200px) { ... }
+
+/* {# XX-Large devices (larger desktops, 1400px and up)#} */
+@media (min-width: 1400px) { ... }
