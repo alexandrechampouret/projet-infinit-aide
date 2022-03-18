@@ -52,13 +52,14 @@ body {
     background: url("../images/Photo.jpg") center center fixed no-repeat;
     background-size: cover;
     height: 800px;
+    font-size: 40px;
 }
 /*============================================*/
 /*============TEXTE CSS ANIMATE ==============*/
 /*============================================*/
 .banner .banner-desc {
     
-    font-size: 40px;
+    
     color: var(--bs-white);
 }
 /* ====================================================== */
