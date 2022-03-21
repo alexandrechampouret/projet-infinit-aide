@@ -3,5 +3,9 @@
 {% block title %}Hello ArticleController!{% endblock %}
 
 {% block body %}
-
+<h1>Liste Articles</h1>
+{% for article in articles %}
+<p>{{article.titre}}</p>
+<br>
+{% endfor %}
 {% endblock %}

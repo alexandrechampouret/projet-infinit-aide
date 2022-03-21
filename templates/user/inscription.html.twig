@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	{% for message in app.session.flashBag.get('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+	{% for message in app.session.flashBag.get('error') %}
+		<div class="alert alert-error">
+			{{ message }}
+		</div>
+	{% endfor %}
+    {#formulaire Inscription#}
+	{{form(form)}}{% endblock %}
+
+	

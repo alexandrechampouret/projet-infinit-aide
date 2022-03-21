@@ -17,7 +17,7 @@ class LoginType extends AbstractType
             ->add('password', PasswordType::class);
     }
 
-    public function configureOptions(OptionsResolver $resolver): void // function qui fit une action mais qui ne retourne rien 
+    public function configureOptions(OptionsResolver $resolver): void // function qui fait une action mais qui ne retourne rien 
     {
         $resolver->setDefaults([
             'data_class' => User::class,

@@ -4,14 +4,15 @@ namespace App\Controller;
 
 
 use App\Form\UserType;
+use App\Form\LoginType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends AbstractController
 {
@@ -64,7 +65,7 @@ class UserController extends AbstractController
         }
 
         // RENDU
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/inscription.html.twig', [
             // 'user' => $user,
             'form' => $formulaire->createView(),
         ]);
@@ -83,7 +84,7 @@ class UserController extends AbstractController
         if ($userBd == null){
 
             
-            $formulaire = $this->createForm(UserType::class);
+            $formulaire = $this->createForm(LoginType::class);
             // Pour envoyer le formulaire (et ce qui apprait dans le bouton)
             $formulaire->add('formulaire_connexion', SubmitType::class, ['label' => 'Connexion']);
             $formulaire->handleRequest($request);
@@ -117,7 +118,7 @@ class UserController extends AbstractController
             }
 
             // RENDU
-            return $this->render('user/index.html.twig', [
+            return $this->render('user/login.html.twig', [
                 'user' => $userBd,
                 'formLogin' => $formulaire->createView(),
             ]);
@@ -133,15 +134,27 @@ class UserController extends AbstractController
 
     // ?object = objet qui contient plusieurs type
     // elle retourne tout les donnée d'un user dans la base donnée . 
-    public function getUser($email) : ?object {
+    // public function getUser($email){
 
-        // on retourne un objet de type user récupérer sur la base de donnée. et chercher avec le mail 
-        // Doctrine : librairie qui la base de donnée 
-        // manager entity manager 
+    //     // on retourne un objet de type user récupérer sur la base de donnée. et chercher avec le mail 
+    //     // Doctrine : librairie qui la base de donnée 
+    //     // manager entity manager 
         
-        return $this->getDoctrine()->getManager()
-            ->getRepository('App:User')
-            ->findOneBy(array('email'=>$email));
-    }
+    //     return $this->getDoctrine()->getManager()
+    //         ->getRepository('App:User')
+    //         ->findOneBy(array('email'=>$email));
+    // }
     
+    /** 
+    * @Route("/logout", name= "logout")
+    */
+
+    public function logout (){
+        $this->get('session')->set('user', '');
+        $this->addFlash('logout', 'Vous êtes déconnecté');
+
+        return $this->redirectToRoute('home');
+    }
+
+
 }

@@ -1,33 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}Acceuil utilisateur{% endblock %}
 
-{% block body %}
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-	{% for message in app.session.flashBag.get('success') %}
-		<div class="alert alert-success">
-			{{ message }}
-		</div>
-	{% endfor %}
-
-	{% for message in app.session.flashBag.get('error') %}
-		<div class="alert alert-error">
-			{{ message }}
-		</div>
-	{% endfor %}
-    {#formulaire Inscription#}
-	{{form(form)}}{% endblock %}
-
-	{#Formulaire de Login #}
-	{{form(formLogin)}}{% endblock %}
+{% block body %}{% endblock %}
