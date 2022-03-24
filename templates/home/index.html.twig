@@ -57,7 +57,7 @@
 <h2 class="text-center fs-2 text-uppercase pb-3">Repères pratiques</h2>
 	<main class="container mt-5">
 		<div class="row logo1 ">
-			<div class=" col-12 col-md-3 d-flex justify-content-center ">
+			<div class=" col-12 col-md-6 d-flex justify-content-center">
 				<i class=" far fa-calendar-alt "></i>
 			</div>
 			
@@ -66,8 +66,13 @@
 						<a href="#" class="exe text-uppercase" style="color: black;">Calendrier des Demarches
 						</a>
 					</li>
-					<li class="exe text-uppercase">Que faire des objets</li>
-					<li class="exe text-uppercase">Organiser les obséques</li>
+					<li class="exe text-uppercase">
+						<a href="#" class="exe text-uppercase" style="color: black;">Que faire des objets
+						</a></li>
+					<li class="exe text-uppercase">
+						<a href="#" class="exe text-uppercase" style="color: black;">Organiser les obséques
+						</a>
+					</li>
 				</ul>
 			
 		</div>
@@ -75,48 +80,53 @@
 
 	<hr class="hr3">
 
-	<main class="row mt-5">
+	<main class="row mt-5 logo1">
 		<p class="text-center fs-2 text-uppercase pb-3">Se faire Aider</p>
-		<div class="col-12 col-md-12 d-flex justify-content-center">
+		<div class="col-12 col-md-6 d-flex justify-content-center">
 			<i class="fas fa-users"></i>
 		</div>
-		<nav class="">
-			<ul class="col-12 col-md-12 pt-4 text-center">
+		
+			<ul class="col-12 p1 col-md-4 pt-4 text-center">
 				<li>
 					<a href="#" class="exe text-uppercase" style="color: black;">Lignes d’écoute et de prévention générique
 					</a>
 				</li>
-				<li class="exe text-uppercase">Associations d’accompagnement des enfants et jeunes en deuil</li>
-				<li class="exe text-uppercase">Comment solliciter de l’aide ?</li>
+				<li >
+				<a href="#" class="exe text-uppercase" style="color: black;"> Associations d’accompagnement des enfants et jeunes en deuil</a>
+				</li>
+				<li >
+				<a href="#" class="exe text-uppercase" style="color: black;"> Comment solliciter de l’aide ?
+				</a>
+				</li>
 			</ul>
-		</nav>
+		
 	</main>
 
 	<h2 class="text-center text-uppercase pt-4 ">Notre contenu à la une</h2>
 
-	<article class="container d-flex justify-content-center ">
-		<div class="row">
-			<div class="col col-md-4 mt-4 pb-4 d-flex ">
-				<div class="card mx-auto border border-white w-100 ">
-					<div class="card-body text-center bg ronded ">
+	<article class="container d-flex justify-content-center">
+		<div class="row card-article ">
+			<div class="col col-md-3  mt-4 pb-4 d-flex ">
+				<div class="card mx-auto border border-white w-100">
+					<div class="card-body text-center  bg ronded ">
 						<img src=" {{ asset('images/visage.jpg')}} " class="card-img-top w-75" alt="...">
 						<h5 class="card-title pt-2">Titre article</h5>
 						<p class="card-text">Text article</p>
 					</div>
 				</div>
 			</div>
-			<div class="col col-md-4 mt-4 pb-4 d-flex">
+			<div class="col col-md-3 mt-4 pb-4 d-flex ">
 				<div class="card mx-auto border border-white w-100 ">
-					<div class="card-body text-center bg ronded ">
+					<div class="card-body text-center  bg ronded ">
 						<img src=" {{ asset('images/0072.jpeg')}} " class="card-img-top w-75" alt="...">
 						<h5 class="card-title pt-2">Titre article</h5>
 						<p class="card-text">Text article</p>
 					</div>
 				</div>
 			</div>
-			<div class="col col-md-4 mt-4 pb-4 d-flex">
-				<div class="card mx-auto border border-white w-100  ">
-					<div class="card-body text-center bg ronded ">
+			<div class="col col-md-3 mt-4 pb-4 d-flex ">
+				<div class="card mx-auto border border-white w-100">
+					<div class="card-body text-center   bg ronded ">
 						<img src=" {{ asset('images/porte.jpg')}} " class="card-img-top w-75" alt="...">
 						<h5 class="card-title pt-2">Titre article</h5>
 						<p class="card-text">Text article</p>
@@ -151,8 +161,4 @@
 			</figcaption>
 		</div>
 	</figure>
-
-
-	<!--Fléche de retour en haut / d-flex utiliser pour placer la fléche a la gauche avec justify-content: end -->
-	<i class="fas fa-arrow-circle-up d-flex mb-2" style="font-size: 40px; justify-content: end;"></i>
 {% endblock %}

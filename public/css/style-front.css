@@ -1,111 +1,108 @@
 @import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Philosopher&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 /* ====================================================== */
 /* =================   Constante de couleur ============= */
 /* ====================================================== */
 :root {
-    --bs-orange: rgba(223, 80, 19, 0.824);
-    --bs-vert:rgb(76, 169, 157);
-    --bs-white: whitesmoke;
+  --bs-orange: rgba(223, 80, 19, 0.824);
+  --bs-vert: rgb(76, 169, 157);
+  --bs-white: whitesmoke;
 }
 body {
-    font-family: "Aclonica", sans-serif;
+  font-family: "Aclonica", sans-serif;
+  max-width: 1300px;
 }
 .container {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .cc-navbar .nav-link {
-    color: var(--bs-white)!important;
-    border-bottom: 2px solid transparent;
-    transition: padding-bottom 0.4s ease-in-out, border-color 0.3s ease;
+  color: var(--bs-white) !important;
+  border-bottom: 2px solid transparent;
+  transition: padding-bottom 0.4s ease-in-out, border-color 0.3s ease;
 }
 .cc-navbar {
-    font-family: philosopher;
-    font-size: 1.3rem;
-    box-shadow: 1px 10px 8px #df5013a1;
-    z-index: 1;
-    background-size: cover;
-    background-color: #df5013e2;
-    opacity: 0.8;
+  font-family: philosopher;
+  font-size: 1.3rem;
+  box-shadow: 1px 10px 8px #df5013a1;
+  z-index: 1;
+  background-size: cover;
+  background-color: #df5013e2;
+  opacity: 0.8;
 }
 .cc-navbar .nav-link:hover {
-    padding-bottom: 10px;
-    border-bottom: 2px solid;
-    border-bottom-color: var(--bs-vert);
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  border-bottom-color: var(--bs-vert);
 }
 /* ~~~~~~~~~~~~~ ANIMATE CSS ~~~~~~~~~~~~~ */
 .animate__backInLeft {
-    color: var(--bs-white);
-    --animate-duration: 1.5s;
+  color: var(--bs-white);
+  --animate-duration: 1.5s;
 }
 /* ~~~~~~~~~~~~~~~~ TITRE ET IMAGE  ~~~~~~~~~~~~~~~~ */
 .navbar-brand {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 .banner {
-    
-    background: url("../images/Photo.jpg") center center fixed no-repeat;
-    background-size: cover;
-    height: 800px;
-    font-size: 40px;
+  background: url("../images/Photo.jpg") center center fixed no-repeat;
+  background-size: cover;
+  height: 800px;
+  font-size: 40px;
 }
 /*============================================*/
 /*============TEXTE CSS ANIMATE ==============*/
 /*============================================*/
 .banner .banner-desc {
-    
-    
-    color: var(--bs-white);
+  color: var(--bs-white);
 }
 /* ====================================================== */
 /* ================== ligne-horizontale ================= */
-/* ====================================================== */ 
+/* ====================================================== */
 .hr2 {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid var(--bs-vert);
-    opacity: 0.8;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid var(--bs-vert);
+  opacity: 0.8;
 }
-.hr3
-{
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid var(--bs-vert);
-    opacity: 0.8;
+.hr3 {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid var(--bs-vert);
+  opacity: 0.8;
 }
 
 hr {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid var(--bs-vert);
-    opacity: 0.8;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid var(--bs-vert);
+  opacity: 0.8;
 }
 
 /* ~~~~~~~~~~~~~MOTS GROSSIE~~~~~~~~~~~~~~~~~~ */
 strong {
-    color: var(--bs-orange);
-    font-size: 1.5rem;
+  color: var(--bs-orange);
+  font-size: 1.5rem;
 }
 
 p {
-    font-size: 1.2rem;
-    align-items: center;
-    /*text-align: center;*/
-    justify-content: center;
+  font-size: 1.2rem;
+  align-items: center;
+  /*text-align: center;*/
+  justify-content: center;
 }
 /* ~~~~~~~~~~~~~~ 1ER TEXTE ~~~~~~~~~~~~~~ */
 .pre1 {
-    line-height: 220%;
-    font-size: 1.3rem;
-    text-align: center;
+  line-height: 220%;
+  font-size: 1.3rem;
+  text-align: center;
 }
 /* .pre2{
     text-align: justify;
@@ -126,78 +123,79 @@ p {
 /* ============= LOGO RESEAUX SOCIO ================= */
 /* ====================================================== */
 
-.far, .fas
-{
-    
-    font-size: 8rem;
-    color: var(--bs-vert);
+.far,
+.fas {
+  font-size: 8rem;
+  color: var(--bs-vert);
 }
-.bg
-{
-    background-color: var(--bs-orange);
+.bg {
+  background-color: var(--bs-orange);
 }
-.ronded
-{
-    border-radius: 5%;
+.ronded {
+  border-radius: 5%;
 }
 
 /* ====================================================== */
 /* ===================== NEWSLETTER ===================== */
 /* ====================================================== */
 
-.new
-{
-    background: url("../images/Foret2-flou.jpg") center center fixed no-repeat;
-    color: var(--bs-white);
-    padding: 30px;
+.new {
+  background: url("../images/Foret2-flou.jpg") center center fixed no-repeat;
+  color: var(--bs-white);
+  padding: 30px;
 }
 
 /* ====================================================== */
 /* ===================== FOOTER ===================== */
 /* ====================================================== */
 
-footer
-{
-    
-    background-color: var(--bs-vert);
-    border-top-left-radius: 4rem;
+footer {
+  background-color: var(--bs-vert);
+  border-top-left-radius: 4rem;
 }
 
-/* ====================================================== */
+
 /* ===================== Media Queries ===================== */
 /* ====================================================== */
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+}
 
 /* {%Medium devices (tablets, 768px and up)#} */
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+}
 
 /* {# Large devices (desktops, 992px and up)#} */
 @media (min-width: 992px) {
-    .banner .banner-desc{
-        font-size: 60px;
-    }
-    .new{
-        padding: 100px;
-    }
-    footer{
-        border-top-left-radius: 0rem;
-    }
-    /* REPERE PRATIQUE  */
-    .logo1{
+  .banner .banner-desc {
+    font-size: 60px;
+  }
+  .new {
+    padding: 100px;
+  }
+  footer {
+    border-top-left-radius: 0rem;
+  }
+  /* REPERE PRATIQUE + se faire aider  */
+  .logo1 {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+  }
+  .p1 {
+    font-size: 1.3rem;
+    color: black;
+  }
+  .fa-calendar-alt.far {
+    font-size: 200px;
+    display: flex;
+    justify-content: center;
+  }
+    .card-article{
         display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .p1{
-        font-size: 1.3rem;
-    }
-    .fa-calendar-alt.far{
-        font-size: 200px;
-        display: flex;
-        justify-content: center;
-    }
-    
-
+        justify-content: space-around;
+  }
+  .card-body{
+        width: 70%;
+  }
 }
-

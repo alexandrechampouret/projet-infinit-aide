@@ -16,12 +16,10 @@
 		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 		<!-- #### FOntAWESOME #### -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-		
-		{# <link
-				rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/> #}
 		<!-- #### FAVICON qui ma servie a generer mon logo #### -->
 		<link
-		rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}"> <!---  ##### CSS #######   -->
+		rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+		<!---  ##### CSS #######   -->
 		<link rel="stylesheet" href="{{ asset('css/style-front.css') }}"> {% block stylesheets %}{% endblock %}
 
 
@@ -55,9 +53,17 @@
 								<li class=" nav-item pe-5">
 									<a class="nav-link" href="#">Se faire Aider</a>
 								</li>
-								<li class=" nav-item pe-6">
-									<a class="nav-link" href="{{ path('logout') }}">Déconnexion</a>
-								</li>
+								{% set userMail = app.session.get('user') %}
+								{% if userMail == '' or userMail is null %}
+									<li class=" nav-item pe-6">
+										<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
+									</li>
+								{% endif %}
+								{% if userMail != '' or userMail is not null %}
+									<li class=" nav-item pe-6">
+										<a class="nav-link" href="{{ path('logout') }}">Déonnexion</a>
+									</li>
+								{% endif %}
 							</ul>
 							
 						</div>
@@ -70,6 +76,12 @@
 
 
 			{% block body %}{% endblock %}
+			<!--Fléche de retour en haut / d-flex utiliser pour placer la fléche a la gauche avec justify-content: end -->
+			<div class="scroll_to_top">
+				<a href="#">
+					<i class="fas fa-arrow-circle-up d-flex mb-2 img" style="font-size: 40px; justify-content: end;"></i>
+				</a>
+			</div>
 			<footer>
 				<div class="container">
 					<div class="row " style=" align-items: center;">
