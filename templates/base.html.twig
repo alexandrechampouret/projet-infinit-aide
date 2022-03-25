@@ -41,14 +41,14 @@
 						<div class="collapse navbar-collapse">
 							<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 								<li class=" nav-item pe-2">
-									<a class="nav-link" aria-current="page" href="#">Contact
+									<a class="nav-link" aria-current="page" href="{{ path('contact')}}">Contact
 									</a>
 								</li>
 								<li class=" nav-item pe-2">
 									<a class="nav-link" href="#">Mon Espace</a>
 								</li>
 								<li class=" nav-item pe-2">
-									<a class="nav-link" href="#">Repères Pratiques</a>
+									<a class="nav-link" href="{{ path('reperepratique')}}">Repères Pratiques</a>
 								</li>
 								<li class=" nav-item pe-5">
 									<a class="nav-link" href="#">Se faire Aider</a>
@@ -76,12 +76,6 @@
 
 
 			{% block body %}{% endblock %}
-			<!--Fléche de retour en haut / d-flex utiliser pour placer la fléche a la gauche avec justify-content: end -->
-			<div class="scroll_to_top">
-				<a href="#">
-					<i class="fas fa-arrow-circle-up d-flex mb-2 img" style="font-size: 40px; justify-content: end;"></i>
-				</a>
-			</div>
 			<footer>
 				<div class="container">
 					<div class="row " style=" align-items: center;">

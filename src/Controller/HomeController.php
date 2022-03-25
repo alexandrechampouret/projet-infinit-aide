@@ -18,4 +18,27 @@ class HomeController extends AbstractController
             'home' => 'HomeController',
         ]);
     }
+
+    /** 
+    * 
+    * @Route("/reperepratique", name= "reperepratique")
+    */
+    public function reperepratique(): Response
+    {
+        return $this->render('home/reperepratique.html.twig', [
+            'home' =>'HomeController',
+        ]);
+    }
+
+
+    /** 
+    * 
+    * @Route("/contact", name= "contact")
+    */
+    public function contact(): Response
+    {
+        return $this->render('home/contact.html.twig', [
+            'contact' =>'HomeController',
+        ]);
+    }
 }
