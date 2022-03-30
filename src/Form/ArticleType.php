@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
+// ------- c'est les formulaire --------------
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -17,8 +18,8 @@ class ArticleType extends AbstractType
         $builder
             ->add('imagePath', FileType::class)
             ->add('description', TextType::class)
-            ->add('titre', TextType::class, ['label'=>'Titre', 'attr' => ['placeholder' => 'titre']])
             ->add('updatedAt', HiddenType::class, ['empty_data' => date('Y-m-d H:i:s')])
+            ->add('titre', TextType::class, ['label'=>'Titre', 'attr' => ['placeholder' => 'titre']])
         ;
     }
 

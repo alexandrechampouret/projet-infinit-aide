@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ArticleType;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,12 +16,33 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article", name= "article")
      */
-    public function index(): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
+        // On recupére les article dans la BDD avec une methode "implicite"
+        $articles = $articleRepository->findAll();
         return $this->render('article/index.html.twig', [
-            'article' => 'ArticleController',
+            'articles' => $articles,
         ]);
     }
+
+    /**
+     * @Route("/article/{id}", name= "article-detail")
+     */
+    public function detail(int $id, ArticleRepository $articleRepository){
+        // récup des données de l'article dont on veux voir le detail avec l'id 
+        // En passant en dinamique dans la route {id}
+        $article = $articleRepository->find($id);
+
+        //rendu
+        return $this->render('article/detail.html.twig', [
+            'article'=>$article,
+        ]);
+
+    }
+
+
+
+
 
     /**
      * @Route("/listarticles", name= "listarticles")

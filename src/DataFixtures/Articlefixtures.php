@@ -14,7 +14,7 @@ class Articlefixtures extends Fixture
         $article = new Article();
         $article->setTitre("Test article");
         $article->setDescription("lorem ljzehfhjezljfzeklfjzkfjkzjklfjklezfklzeklfjekzjfkezjfkljkfljezkjfkljfkejfkljzlkfjzjef");
-        $article->setImagePath("");
+        $article->setImagePath("0072.jpeg");
         $article->setUpdatedAt(new DateTimeImmutable("now"));
         $manager->persist($article);
 
@@ -22,7 +22,7 @@ class Articlefixtures extends Fixture
         $article = new Article();
         $article->setTitre("Test article 222");
         $article->setDescription("D orem ljzehfhjezljfzeklfjzkfjkzjklfjklezfklzeklfjekzjfkezjfkljkfljezkjfkljfkejfkljzlkfjzjef  clakcjakdjkejdkjkajd");
-        $article->setImagePath("");
+        $article->setImagePath("0072.jpeg");
         $article->setUpdatedAt(new DateTimeImmutable("now"));
         $manager->persist($article);
 

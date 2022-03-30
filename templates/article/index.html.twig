@@ -3,24 +3,32 @@
 {% block title %}Liste Articles{% endblock %}
 
 
-
 {% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
-
 <table class="table table-striped">
 <h1>Liste Articles</h1>
-{% for articles in article %}
-<p>{{article.titre}}</p>
-<br>
-<p>{{article.description}}</p>
-<br>
-<p>{{ asset('images/' ~ article.imagePath)}}</p>
+{% for article in articles %}
+    <tr>
+    <td><img src="{{ asset('images/' ~ article.imagePath)}}" alt="" class="img-list-article" >
+    </td>
+    <td>{{ article.titre}}</td>
+    <td>{{ article.description}}</td>
+    <td><a href="{{ path('article-detail', {'id': article.id})}}" class="btn btn-dark">Détail</a></td>
+    </tr>
+
+
+
+
+
 {% endfor %}
 
 </table>
-
-
-
 </div>
 
 {% endblock %}
