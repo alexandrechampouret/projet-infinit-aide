@@ -1,20 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}
+	<div class="container d-flex justify-content-center  ">
+		<div class="img-connect">
+			<h1 class="text-center z">Inscription</h1>
+		</div>
+	</div>
+{% endblock %}
 
 {% block body %}
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+	<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	{% for message in app.session.flashBag.get('success') %}
 		<div class="alert alert-success">
 			{{ message }}
@@ -26,8 +27,18 @@
 			{{ message }}
 		</div>
 	{% endfor %}
-    {#formulaire Inscription#}
-	{{form(form)}}
-	{% endblock %}
+	{#formulaire Inscription#}
+	<div class="col-12 col-md-12 toto1  container d-flex justify-content-center  ">
+		<div class="card-body  ">
+			
+				{{form(form)}}
+				
+		</div>
+		</div>
+		<br>
+		<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320">
+			<path fill="#fdbb2d" fill-opacity="1" d="M0,288L17.1,261.3C34.3,235,69,181,103,154.7C137.1,128,171,128,206,154.7C240,181,274,235,309,234.7C342.9,235,377,181,411,138.7C445.7,96,480,64,514,74.7C548.6,85,583,139,617,165.3C651.4,192,686,192,720,186.7C754.3,181,789,171,823,186.7C857.1,203,891,245,926,234.7C960,224,994,160,1029,149.3C1062.9,139,1097,181,1131,170.7C1165.7,160,1200,96,1234,64C1268.6,32,1303,32,1337,48C1371.4,64,1406,96,1423,112L1440,128L1440,320L1422.9,320C1405.7,320,1371,320,1337,320C1302.9,320,1269,320,1234,320C1200,320,1166,320,1131,320C1097.1,320,1063,320,1029,320C994.3,320,960,320,926,320C891.4,320,857,320,823,320C788.6,320,754,320,720,320C685.7,320,651,320,617,320C582.9,320,549,320,514,320C480,320,446,320,411,320C377.1,320,343,320,309,320C274.3,320,240,320,206,320C171.4,320,137,320,103,320C68.6,320,34,320,17,320L0,320Z"></path>
+		</svg>
 
-	
+
+	{% endblock %}

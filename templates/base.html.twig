@@ -15,19 +15,21 @@
 		<link
 		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 		<!-- #### FOntAWESOME #### -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link
+		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 		<!-- #### FAVICON qui ma servie a generer mon logo #### -->
 		<link
 		rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
 		<!---  ##### CSS #######   -->
-		<link rel="stylesheet" href="{{ asset('css/style-front.css') }}"> {% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('css/style-front.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/js.css') }}"> {% block stylesheets %}{% endblock %}
 
 
 		</head>
 		<!--######NAVBAR######-->
 		<body>
 			<header>
-				
+
 				<nav class="cc-navbar navbar navbar-expand-lg position-fixed navbar-dark w-100">
 					<div class="container-fluid">
 						<a class="navbar-brand text-uppercase  mx-0 " href=" {{ path('home') }} ">
@@ -50,22 +52,28 @@
 								<li class=" nav-item pe-2">
 									<a class="nav-link" href="{{ path('reperepratique')}}">Repères Pratiques</a>
 								</li>
-								<li class=" nav-item pe-5">
-									<a class="nav-link" href="#">Se faire Aider</a>
-								</li>
-								{% set userMail = app.session.get('user') %}
-								{% if userMail == '' or userMail is null %}
+								{# <li class=" nav-item pe-5">
+																																									<a class="nav-link" href="#">Se faire Aider</a>
+																																								</li> #}
+								{# <li class="nav-item ms-auto"> #}
+
+
+								{#Si on est pas connecté on met en place un bouton de connexion sinon on met en place un bouton deconnexion#}
+
+									{% if app.user %}
+										<li class=" nav-item pe-6"> <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+									</li>
+								{% elseif not app.user %}
+									<li class=" nav-item pe-2">
+										<a class="nav-link" href="{{ path('inscription')}}">Inscription</a>
+									</li>
 									<li class=" nav-item pe-6">
 										<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
 									</li>
 								{% endif %}
-								{% if userMail != '' or userMail is not null %}
-									<li class=" nav-item pe-6">
-										<a class="nav-link" href="{{ path('logout') }}">Déonnexion</a>
-									</li>
-								{% endif %}
+
 							</ul>
-							
+
 						</div>
 					</div>
 				</nav>
@@ -102,11 +110,15 @@
 					</div>
 				</footer>
 
-				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-				
+				{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>#}
+
+				{# // cdn JQuery  #}
+				<scrip src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></scrip>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+				{# Je relis mon fichier de script a mon HTML #}
+				<script src="js/test.js"></script>
+
 				{% block javascripts %}{% endblock %}
-
-
 			</body>
 		</body>
 	</html>

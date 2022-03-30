@@ -1,11 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticleController!{% endblock %}
+{% block title %}Liste Articles{% endblock %}
+
+
 
 {% block body %}
+<div class="container">
+
+<table class="table table-striped">
 <h1>Liste Articles</h1>
-{% for article in articles %}
+{% for articles in article %}
 <p>{{article.titre}}</p>
 <br>
+<p>{{article.description}}</p>
+<br>
+<p>{{ asset('images/' ~ article.imagePath)}}</p>
 {% endfor %}
+
+</table>
+
+
+
+</div>
+
 {% endblock %}

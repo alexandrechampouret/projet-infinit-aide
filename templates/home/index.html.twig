@@ -4,7 +4,6 @@
 {% endblock %}
 
 {% block body %}
-
 	<section class="banner d-flex justify-content-center align-items-center mx-auto pt-5">
 		<div class="container">
 			<div class="row">
@@ -16,6 +15,8 @@
 	</section>
 
 	<!--Embed-reponsive ect est la pour rendre la vidéo responsive -->
+	<br>
+	<br>
 	<div class="container">
 		<div class="row mt-2">
 			<div class="col-11 col-md-4 pt-5 pb-3 d-flex justify-content-center">
@@ -23,8 +24,8 @@
 					<iframe class="embed-responsive-item ms-5" src="https://www.youtube.com/embed/PWXHkYMZ4LQ?list=RDPWXHkYMZ4LQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
-			<div class="col-12 col-md-8 ">
-				<p class="pre1">
+			<div class="col-12 col-md-8  ">
+				<p class="pre1 zone1  ">
 					Bienvenue à tous !<br>
 					Toute l’équipe de notre association Infinit’Aide est à votre service pour vous informer et vous
 					accompagner dans votre chemin de deuil
@@ -37,12 +38,12 @@
 	</div>
 
 	<hr>
-
+	<br>
 	<h2 class="text-center pt-2">Comment ca marche ?
 	</h2>
 	<main class="row align-items-center mx-auto">
 		<div class="col-12 col-md-6 ">
-			<p class="pre1">
+			<p class="pre1 zone2">
 				Des informations concrètes sur les démarches et les formalités à accomplir
 				<strong>pendant et après les obsèques.</strong><br>Avec un calendrier pour vous guider.
 			</p>
@@ -63,15 +64,13 @@
 			
 				<ul class="p1 col-12 col-md-4  pt-4 text-center">
 					<li>
-						<a href="#" class="exe text-uppercase" style="color: black;">Calendrier des Demarches
-						</a>
+					<a href="{{ path('reperepratique')}}" title="" target="_blank" style="color: black">Formulaires après décès </a>
 					</li>
-					<li class="exe text-uppercase">
-						<a href="#" class="exe text-uppercase" style="color: black;">Que faire des objets
-						</a></li>
-					<li class="exe text-uppercase">
-						<a href="#" class="exe text-uppercase" style="color: black;">Organiser les obséques
-						</a>
+					<li>
+					<a href="{{ path('declarerundeces')}}" title="" target="_blank" style="color: black">Déclarer un décès </a>
+					</li>
+					<li>
+					<a href="{{ path('reperepratique')}}" title="" target="_blank" style="color: black">Les services funéraires</a>
 					</li>
 				</ul>
 			
@@ -135,15 +134,15 @@
 			</div>
 		</div>
 	</article>
-	<div class="row">
-		<div class="col-12 col-md-12 new d-flex flex-wrap justify-content-center">
+	<div class="row new">
+		<div class="col-12 col-md-12   d-flex flex-wrap justify-content-center">
 			<p class="text-center fs-1 fw-bolder">Rejoignez notre Newsletter</p>
 			<p class="text-center">Recevez nos articles pour vous aider à mieux traverser ou comprendre le deuil.</p>
 
 			<div class="col-10 col-md-6">
 				<div class="input-group">
 					<span class="input-group-text" id="inputGroupPrepend2">@</span>
-					<input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+					<input type="text" placeholder="Entrer votre mail" class="form-control zone3" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
 					<button class="btn btn-light" type="submit">S'inscrire</button>
 				</div>
 			</div>
@@ -168,4 +167,5 @@
 					<i class="fas fa-arrow-circle-up d-flex mb-2 img" style="font-size: 40px; justify-content: end;"></i>
 				</a>
 			</div>
+			
 {% endblock %}

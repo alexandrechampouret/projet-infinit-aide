@@ -25,13 +25,55 @@ class UserController extends AbstractController
             'utilisateur' => 'UserController',
         ]);
     }
+
+    /** 
+    * @Route("/profile", name= "profile")
+    */
+    public function profile(Request $request): Response
+    {
+        //On recupére le user actif dans une varibale user
+        $user = $this->getUser();
+        //Formulaire de changement user
+        $form = $this->createForme(UserType::class, $user);
+        // on hydrate (mettre données dedans)
+        $form->handleRequest($request);
+        //On traite les données 
+        if($form->isSubmitted() && $form->isValid()){
+            //On met a jour le mots de pass encodé de l'user si il a saisie un nouveau 
+            $plainPassword = $form->get('password')->getData();
+            if(!is_null($plainPassword)){
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword(
+                            $user,
+                            $plainPassword
+                        )
+                    );
+                }
+
+            // on donne notre variable a entity manager et flush-> pousse dans la BDD 
+            $entityManagerInterface->persist($user);
+            $entityManagerInterface->flush();
+                // ajout message confirmation 
+            $this->addFlash("succes", "Vos information on bien était mis a jour.");
+            //on redirige vers la meme page
+            $this->redirecteToRoute('profile');
+
+        }
+        return $this->render('user/index.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+
     /** 
     * @Route("/register", name= "inscription")
     */
-    public function inscription(Request $request, EntityManagerInterface $entityManagerInterface, UserPasswordHasherInterface $userPasswordHasher)
+    public function inscription(Request $request, EntityManagerInterface $entityManagerInterface, UserPasswordHasherInterface $userPasswordHasherInterface)
     {
         // On teste si anonyme
-        $user = $this->get('session')->get('user');
+        // $user = $this->get('session')->get('user');
+        $user = $this->getUser();
+
         $utilisateur = $this->getUserDB($user);
  
         if($utilisateur == null) {
@@ -44,24 +86,24 @@ class UserController extends AbstractController
                 $utilisateur = $formulaire->getData();
                 // On hash le mot de passe
                 $utilisateur->setPassword(
-                    $userPasswordHasher->hashPassword(
+                    $userPasswordHasherInterface->hashPassword(
                             $utilisateur,
                             $formulaire->get('password')->getData()
                         )
                     );
- 
+
                 // autre methode de hashage 
                 // $utilisateur->setPassword(sha1($formulaire->get('motdepasse')->getData()));
- 
+
                 // on donne notre variable a entity manager et flush-> pousse dans la BDD 
                 $entityManagerInterface->persist($utilisateur);
                 $entityManagerInterface->flush();
                 // On a joute un message de confirmation
-                $this->addFlash("success", "Votre a bien était créé");
+                $this->addFlash("success", "Votre profile a bien était créé");
                 // On redirige vers la même page 
                 $this->redirectToRoute('home');
         
- 
+
             }
             if ($formulaire->isSubmitted()){
                 // On gére les erreurs 
@@ -69,11 +111,11 @@ class UserController extends AbstractController
             }
  
             // RENDU
-            return $this->render('user/register.html.twig', [
+            return $this->render('user/inscription.html.twig', [
                 'user' => $user,
                 'form' => $formulaire->createView(),
             ]);
-        } else {
+        }else {
             throw $this->createNotFoundException('Cette page n\'est accessible que par les utilisateurs non inscrits');
         }
         
@@ -89,9 +131,8 @@ class UserController extends AbstractController
         //récupere le user présent dans la session 
         $userBd = $this->get('session')->get('user');
         
- 
+
         if ($userBd == null){
- 
             
             $formulaire = $this->createForm(LoginType::class);
             // Pour envoyer le formulaire (et ce qui apprait dans le bouton)
@@ -106,9 +147,6 @@ class UserController extends AbstractController
                 $isMdpCorrect = $userPasswordHasher->isPasswordValid($userBd, $mdpFormulaire);
                 if($isMdpCorrect) {
 
-                    // session = variable globale et je stock l'email de l'utilisateur 
-                    $this->startSession();
-                    $this->get('session')->set('user', $userBd->getEmail());
                 }
                 else{
                     $this->addFlash('error', 'Le mots de passe n\'est pas valide');
@@ -134,16 +172,7 @@ class UserController extends AbstractController
         }
     }
  
-    /** 
-    * @Route("/logout", name= "logout")
-    */
-    public function logout() {
-        $this->stopSession($this->get('session'));
- 
-        $this->addFlash('success', 'Vous etes déconnecté.');
-        return $this->redirectToRoute('home');
-
-    }
+    
  
     
     // elle retourne tout les donnée d'un user dans la base donnée . 
@@ -155,22 +184,6 @@ class UserController extends AbstractController
         return $this->getDoctrine()->getManager()
             ->getRepository('App:User')
             ->findOneBy(array('email'=>$email));
-    }
-    // Créer/détruire une session
-    public function startSession() {
-        
-        $session = $this->get('session');
-        if(!isset($session)) {
-            $session->start();
-        }
-    }
-
-    public function stopSession(Session $session) {
-        // $session = new Session();
-        $session->clear();
-        //pour detruire la session "session plus valide" 
-        $session->invalidate(1);
- 
     }
 
 

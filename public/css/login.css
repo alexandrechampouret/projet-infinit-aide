@@ -54,9 +54,11 @@
     color: white;
     
 }
+/*============== Formulaire connexion =========== */
+
 .img-connect{
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    background: url('../images/connexion.jpg') center center no-repeat;
+    background: url('../images/connexion.jpg') center no-repeat;
     width: 50%;
     height: 300px;
 }

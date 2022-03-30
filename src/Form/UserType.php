@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
@@ -19,7 +20,7 @@ class UserType extends AbstractType
             ->add('nom', TextType::class)
             //Permet de definir le type de L'input
             ->add('prenom', TextType::class)
-            ->add('email', TextType::class)
+            ->add('email', EmailType::class)
             // ->add('roles')
             ->add('password', PasswordType::class)
             ->add('abonnementNewsletter', ChoiceType::class, ['choices' => ['Oui' => true, 'Non' => false]]) // 
