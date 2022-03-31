@@ -1,47 +1,47 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Liste Article{% endblock %}
 
 {% block body %}
-<br>
-<br>
-<br>
-<br>
-<br>
-    <h1>Article index</h1>
-<br>
+
+    <h1>Liste Article</h1><br>
+    <a href="{{ path('admin_article_new') }}" class="btn btn-warning">Nouveau</a>
+
 <br>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Image</th>
+                {# <th>Id</th> #}
                 <th>Titre</th>
-                <th>Description</th>
-                <th>ImagePath</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
+                {# <th>Description</th> #}
+                <th>Mise a jour le </th>
+                <th class="text-end">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for article in articles %}
+        <div class="container">
             <tr>
-                <td>{{ article.id }}</td>
+                <td><img src="{{ asset('images/article/' ~ article.imagePath)}}" alt="" class="img-liste"></td>
+                {# <td>{{ article.id }}</td> #}
                 <td>{{ article.titre }}</td>
-                <td>{{ article.description }}</td>
-                <td>{{ article.imagePath }}</td>
+                {# <td>{{ article.description }}</td> #}
                 <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('admin_article_edit', {'id': article.id}) }}">edit</a>
+                <td class="text-end">
+                    <a href="{{ path('admin_article_show', {'id': article.id}) }}" class="btn btn-primary me-md-2 md-2 mb-md-0">show</a>
+                    <a href="{{ path('admin_article_edit', {'id': article.id}) }}" class="btn btn-success mt-2">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="4">Aucun article de trouver</td>
             </tr>
+        </div>
         {% endfor %}
+
         </tbody>
     </table>
 
-    <a href="{{ path('admin_article_new') }}">Create new</a>
+
 {% endblock %}

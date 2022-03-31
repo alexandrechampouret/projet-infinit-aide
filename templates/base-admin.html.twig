@@ -2,127 +2,33 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% block title %}Infinit'Aide
 			{% endblock %}
 		</title>
-		<link
-		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-		<!-- #### BOOTSTRAP #### -->
-		<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-		<!-- #### Animation css #### -->
-		<link
-		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-		<!-- #### FOntAWESOME #### -->
-		<link
-		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-		<!-- #### FAVICON qui ma servie a generer mon logo #### -->
-		<link
-		rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
-		<!---  ##### CSS #######   -->
-		<link rel="stylesheet" href="{{ asset('css/style-front.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/js.css') }}"> 
+		<link rel="stylesheet" href="{{ asset('css/app.css') }}"> 
+		<link rel="stylesheet" href="{{ asset('css/style-back.css') }}"> 
 		{% block stylesheets %}{% endblock %}
+		<header>
+			<body>
+				<div class="wrapper">
+					{% include 'admin_commun/_admin-menu-left.html.twig' %}
+					<div class="main">
+						{% include 'admin_commun/_admin-menu-top.html.twig' %}
 
+						<main class="content">
+							<div class="container-fluid p-0"> {% block body %}{% endblock %}
 
-		</head>
-		<!--######NAVBAR######-->
-		<body>
-			<header>
-
-				<nav class="cc-navbar navbar navbar-expand-lg position-fixed navbar-dark w-100">
-					<div class="container-fluid">
-						<a class="navbar-brand text-uppercase  mx-0 " href=" {{ path('home') }} ">
-							Infinit'Aide
-							<hr>
-						</a>
-						<img src=" {{ asset('images/Untitled.svg')}}" alt="">
-						<button class="navbar-toggler mx-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse">
-							<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-								<li class=" nav-item pe-2">
-									<a class="nav-link" aria-current="page" href="{{ path('contact')}}">Contact
-									</a>
-								</li>
-								<li class=" nav-item pe-2">
-									<a class="nav-link" href="#">Mon Espace</a>
-								</li>
-								<li class=" nav-item pe-2">
-									<a class="nav-link" href="{{ path('reperepratique')}}">Repères Pratiques</a>
-								</li>
-								<li class=" nav-item pe-2">
-									<a class="nav-link" href="{{ path('admin_article_index')}}">Articles</a>
-								</li>
-								{# <li class=" nav-item pe-5">
-																																									<a class="nav-link" href="#">Se faire Aider</a>
-																																								</li> #}
-								{# <li class="nav-item ms-auto"> #}
-
-
-								{#Si on est pas connecté on met en place un bouton de connexion sinon on met en place un bouton deconnexion#}
-
-									{% if app.user %}
-										<li class=" nav-item pe-6"> <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-									</li>
-								{% elseif not app.user %}
-									<li class=" nav-item pe-2">
-										<a class="nav-link" href="{{ path('inscription')}}">Inscription</a>
-									</li>
-									<li class=" nav-item pe-6">
-										<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
-									</li>
-								{% endif %}
-
-							</ul>
-
+								</div>
+							</main>
+							{% include 'admin_commun/_admin-footer.html.twig' %}
 						</div>
 					</div>
-				</nav>
+				</body>
 			</header>
-			<!--######FIN-NAVBAR######-->
-
-			<br>
-
-
-			{% block body %}{% endblock %}
-			<footer>
-				<div class="container">
-					<div class="row " style=" align-items: center;">
-						<div class="col-2 col-md-4 d-flex" style="justify-content: center;">
-							<div class="list-inline">
-								<a href="">
-									<li class="fab fa-twitter fa-2x" style="color: var(--bs-orange)"></li>
-								</a>
-								<a href="https://www.facebook.com/profile.php?id=100075224844250">
-									<i class="fab fa-facebook fa-2x" style="color: var(--bs-orange)"></i>
-								</a>
-							</div>
-						</div>
-						<div class="col-3 col-md-3 text-center">
-							<a href="" class="nav-link" style="color:black">CGU</a>
-							<a href="" class="nav-link" style="color:black">Mention legale</a>
-						</div>
-						<div class="col-7 col-md-5 list-inline">
-							<div class="input-group">
-								<input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required placeholder="Votre Email">
-								<button class="btn btn-light rounded-pill" style="background-color: var(--bs-orange)" type="submit">S'inscrire</button>
-							</div>
-						</div>
-					</div>
-				</footer>
-
-				{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>#}
-
-				{# // cdn JQuery  #}
-				<scrip src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></scrip>
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-				{# Je relis mon fichier de script a mon HTML #}
-				<script src="js/test.js"></script>
-
-				{% block javascripts %}{% endblock %}
-			</body>
-		</body>
+			<script src="{{ asset('js/app.js')}}"></script>
+			{% block javascripts %}{% endblock %}
+		</head>
 	</html>
