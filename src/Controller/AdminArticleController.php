@@ -37,6 +37,13 @@ class AdminArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // déplacement d'image 
+            if ( 0 < $_FILES['article']['error'] ) {
+                $this->addFlash('error', 'chargement non réussit');
+            }else{
+                move_uploaded_file($_FILES['article']['tmp_name'], 'images/article/' . $_FILES['article']['name']);
+            }
+
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -85,6 +92,7 @@ class AdminArticleController extends AbstractController
     public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+                // dump($article);exit;
             $entityManager->remove($article);
             $entityManager->flush();
         }

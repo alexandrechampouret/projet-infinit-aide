@@ -17,12 +17,13 @@ class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        
         $builder
-            ->remove('imagePath', FileType::class, ['label'=>'Image'])
+            ->add('imagePath', FileType::class, ['label'=>'Image'])
             ->add('description', CKEditorType::class)
-            ->remove('updatedAt', HiddenType::class, ['empty_data' => date('Y-m-d H:i:s')])
+            ->add('updatedAt', HiddenType::class, ['empty_data' =>date('Y-m-d H:i:s')])
             ->add('titre', TextType::class, ['label'=>'Titre', 'attr' => ['placeholder' => 'titre']])
-            ->add('imageFile', FileType::class, ['label' => 'Image'])
+            // ->add('imageFile', FileType::class, ['label' => 'Image'])
         ;
     }
 

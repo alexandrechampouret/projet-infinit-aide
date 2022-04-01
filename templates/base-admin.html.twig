@@ -13,6 +13,7 @@
 		{% block stylesheets %}{% endblock %}
 		<header>
 			<body>
+			{% if 'ROLE_ADMIN' in app.user.roles %}
 				<div class="wrapper">
 					{% include 'admin_commun/_admin-menu-left.html.twig' %}
 					<div class="main">
@@ -27,6 +28,9 @@
 						</div>
 					</div>
 				</body>
+			{% else %} 
+			<p>Vous n'avez pas acces a cette page</p>
+			{% endif %}
 			</header>
 			<script src="{{ asset('js/app.js')}}"></script>
 			{% block javascripts %}{% endblock %}

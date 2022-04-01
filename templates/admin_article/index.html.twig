@@ -22,8 +22,9 @@
         <tbody>
         {% for article in articles %}
         <div class="container">
+        
             <tr>
-                <td><img src="{{ asset('images/article/' ~ article.imagePath)}}" alt="" class="img-liste"></td>
+                <td><img src="{{ asset('images/article/' ~ article.imagePath)}}" alt="" class="img-liste" style="max-width: 100px"></td>
                 {# <td>{{ article.id }}</td> #}
                 <td>{{ article.titre }}</td>
                 {# <td>{{ article.description }}</td> #}
