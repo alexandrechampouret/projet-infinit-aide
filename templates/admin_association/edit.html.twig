@@ -1,0 +1,15 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Edit Association
+{% endblock %}
+
+{% block body %}
+	
+	<a href="{{ path('admin_association_index') }}" class="btn btn-dark mb-3">Retour a la liste</a>
+    <h1>Edit Association</h1>
+
+	{{ include('admin_association/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+
+	{{ include('admin_association/_delete_form.html.twig') }}
+{% endblock %}

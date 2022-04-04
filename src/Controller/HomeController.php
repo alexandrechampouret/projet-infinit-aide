@@ -52,7 +52,19 @@ class HomeController extends AbstractController
     public function declarerundeces(): Response
     {
         return $this->render('home/declarerdeces.html.twig', [
-            'contact' =>'HomeController',
+            'home' =>'HomeController',
         ]);
     }
+
+    /** 
+     * 
+    * @Route("/servicefuneraire", name= "servicefuneraire")
+    */
+    public function servicefuneraire(): Response
+    {
+        return $this->render('home/servicefuneraire.html.twig', [
+            'home' =>'HomeController',
+        ]);
+    }
+    
 }

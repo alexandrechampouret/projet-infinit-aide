@@ -5,7 +5,7 @@
 {% block body %}
 
     <h1>Liste Article</h1><br>
-    <a href="{{ path('admin_article_new') }}" class="btn btn-warning">Nouveau</a>
+    <a href="{{ path('admin_article_new') }}" class="btn btn-warning mb-3">Nouveau</a>
 
 <br>
     <table class="table">
@@ -24,7 +24,7 @@
         <div class="container">
         
             <tr>
-                <td><img src="{{ asset('images/article/' ~ article.imagePath)}}" alt="" class="img-liste" style="max-width: 100px"></td>
+                <td><img src="{{ asset('images/article' ~ article.imagePath)}}" alt="" class="img-liste" style="max-width: 100px"></td>
                 {# <td>{{ article.id }}</td> #}
                 <td>{{ article.titre }}</td>
                 {# <td>{{ article.description }}</td> #}

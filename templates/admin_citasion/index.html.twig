@@ -1,0 +1,38 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Liste Citation{% endblock %}
+
+{% block body %}
+    <h1>Liste Citation </h1><br>
+    <a href="{{ path('admin_citasion_new') }}" class="btn btn-warning mb-3">Nouveau</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for citasion in citasions %}
+        <div class="container">
+            <tr>
+                <td>{{ citasion.id }}</td>
+                <td>{{ citasion.description }}</td>
+                <td>
+                    <a href="{{ path('admin_citasion_show', {'id': citasion.id}) }}" class="btn btn-primary me-md-2 md-2 mb-md-0">show</a>
+                    <a href="{{ path('admin_citasion_edit', {'id': citasion.id}) }}" class="btn btn-success mt-2">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucune Citation de trouver</td>
+            </tr>
+        </div>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

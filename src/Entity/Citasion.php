@@ -2,24 +2,23 @@
 
 namespace App\Entity;
 
-use App\Repository\CitationRepository;
+use App\Repository\CitasionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
-* ORM\Entity(repositoryClass: CitationRepository::class)
-*/
-class Citation
+ * @ORM\Entity(repositoryClass=CitasionRepository::class)
+ */
+class Citasion
 {
-    /** 
-    * @ORM\Id
-    * @ORM\GeneratedValue
-    * @ORM\Column(type= "integer")
-    */
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private $id;
 
     /**
-     * @ORM\Column(type= "text")
+     * @ORM\Column(type="text")
      */
     private $description;
 

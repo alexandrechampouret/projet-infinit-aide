@@ -1,34 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste Articles{% endblock %}
+{% block title %}Liste Articles
+{% endblock %}
 
 
 {% block body %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-<table class="table table-striped">
-<h1>Liste Articles</h1>
-{% for article in articles %}
-    <tr>
-    <td><img src="{{ asset('images/' ~ article.imagePath)}}" alt="" class="img-list-article" >
-    </td>
-    <td>{{ article.titre}}</td>
-    <td>{{ article.description}}</td>
-    <td><a href="{{ path('article-detail', {'id': article.id})}}" class="btn btn-dark">Détail</a></td>
-    </tr>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>Liste Articles</h1>
+
+	<div class="container">
+
+		<table class="table table-striped">
+			{% for article in articles %}
+
+				<tr>
+					<td><img src="{{ asset('images/' ~ article.imagePath)}}" alt="" class="img-list-article">
+					</td>
+					<td>{{ article.titre}}</td>
+					<td>{{ article.description}}</td>
+					<td>
+						<a href="{{ path('article-detail', {'id': article.id})}}" class="btn btn-dark">Détail</a>
+					</td>
+				</tr>
 
 
+			{% endfor %}
 
-
-
-{% endfor %}
-
-</table>
-</div>
+		</table>
+	</div>
 
 {% endblock %}

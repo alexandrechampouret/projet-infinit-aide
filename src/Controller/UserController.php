@@ -16,25 +16,25 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserController extends AbstractController
 {
-    /** 
-    * @Route("/user", name= "user")
-    */
-    public function index(): Response
-    {
-        return $this->render('user/index.html.twig', [
-            'utilisateur' => 'UserController',
-        ]);
-    }
+    // /** 
+    // * @Route("/user", name= "user")
+    // */
+    // public function index(): Response
+    // {
+    //     return $this->render('user/index.html.twig', [
+    //         'utilisateur' => 'UserController',
+    //     ]);
+    // }
 
     /** 
     * @Route("/profile", name= "profile")
     */
-    public function profile(Request $request): Response
+    public function profile(Request $request, UserPasswordHasherInterface $userPasswordHasherInterface, EntityManagerInterface $entityManagerInterface ): Response
     {
         //On recupére le user actif dans une varibale user
         $user = $this->getUser();
         //Formulaire de changement user
-        $form = $this->createForme(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user);
         // on hydrate (mettre données dedans)
         $form->handleRequest($request);
         //On traite les données 
@@ -65,61 +65,61 @@ class UserController extends AbstractController
         ]);
     }
 
-    /** 
-    * @Route("/register", name= "inscription")
-    */
-    public function inscription(Request $request, EntityManagerInterface $entityManagerInterface, UserPasswordHasherInterface $userPasswordHasherInterface)
-    {
-        // On teste si anonyme
-        // $user = $this->get('session')->get('user');
-        $user = $this->getUser();
+    // /** 
+    // * @Route("/register", name= "inscription")
+    // */
+    // public function inscription(Request $request, EntityManagerInterface $entityManagerInterface, UserPasswordHasherInterface $userPasswordHasherInterface)
+    // {
+    //     // On teste si anonyme
+    //     // $user = $this->get('session')->get('user');
+    //     $user = $this->getUser();
 
-        $utilisateur = $this->getUserDB($user);
- 
-        if($utilisateur == null) {
-            $formulaire = $this->createForm(UserType::class);
-            // Pour envoyer le formulaire (et ce qui apprait dans le bouton)
-            $formulaire->add('formulaire_dinscription', SubmitType::class, ['label' => 'Envoyer']);
-            $formulaire->handleRequest($request);
-            if ($formulaire->isSubmitted() && $formulaire->isValid()) {
-                // On recupére tout les données saisi par les  utilisateurs 
-                $utilisateur = $formulaire->getData();
-                // On hash le mot de passe
-                $utilisateur->setPassword(
-                    $userPasswordHasherInterface->hashPassword(
-                            $utilisateur,
-                            $formulaire->get('password')->getData()
-                        )
-                    );
+    //     $utilisateur = $this->getUserDB($user);
 
-                // autre methode de hashage 
-                // $utilisateur->setPassword(sha1($formulaire->get('motdepasse')->getData()));
+    //     if($utilisateur == null) {
+    //         $formulaire = $this->createForm(UserType::class);
+    //         // Pour envoyer le formulaire (et ce qui apprait dans le bouton)
+    //         $formulaire->add('formulaire_dinscription', SubmitType::class, ['label' => 'Envoyer']);
+    //         $formulaire->handleRequest($request);
+    //         if ($formulaire->isSubmitted() && $formulaire->isValid()) {
+    //             // On recupére tout les données saisi par les  utilisateurs 
+    //             $utilisateur = $formulaire->getData();
+    //             // On hash le mot de passe
+    //             $utilisateur->setPassword(
+    //                 $userPasswordHasherInterface->hashPassword(
+    //                         $utilisateur,
+    //                         $formulaire->get('password')->getData()
+    //                     )
+    //                 );
 
-                // on donne notre variable a entity manager et flush-> pousse dans la BDD 
-                $entityManagerInterface->persist($utilisateur);
-                $entityManagerInterface->flush();
-                // On a joute un message de confirmation
-                $this->addFlash("success", "Votre profile a bien était créé");
-                // On redirige vers la même page 
-                $this->redirectToRoute('home');
+    //             // autre methode de hashage 
+    //             // $utilisateur->setPassword(sha1($formulaire->get('motdepasse')->getData()));
+
+    //             // on donne notre variable a entity manager et flush-> pousse dans la BDD 
+    //             $entityManagerInterface->persist($utilisateur);
+    //             $entityManagerInterface->flush();
+    //             // On a joute un message de confirmation
+    //             $this->addFlash("success", "Votre profile a bien était créé");
+    //             // On redirige vers la même page 
+    //             $this->redirectToRoute('home');
         
 
-            }
-            if ($formulaire->isSubmitted()){
-                // On gére les erreurs 
-                $this->addFlash("error", "Erreur Inscription");
-            }
+    //         }
+    //         // if ($formulaire->isSubmitted()){
+    //         //     // On gére les erreurs 
+    //         //     $this->addFlash("error", "Erreur Inscription");
+    //         // }
  
-            // RENDU
-            return $this->render('user/inscription.html.twig', [
-                'user' => $user,
-                'form' => $formulaire->createView(),
-            ]);
-        }else {
-            throw $this->createNotFoundException('Cette page n\'est accessible que par les utilisateurs non inscrits');
-        }
+    //         // RENDU
+    //         return $this->render('user/inscription.html.twig', [
+    //             'user' => $user,
+    //             'form' => $formulaire->createView(),
+    //         ]);
+    //     }else {
+    //         throw $this->createNotFoundException('Cette page n\'est accessible que par les utilisateurs non inscrits');
+    //     }
         
-    }
+    // }
 
     /** 
     * @Route("/login", name= "connexion")
@@ -142,7 +142,7 @@ class UserController extends AbstractController
                 // on recupére l'email saisi par l'utilisateur 
                 $userBd = $this->getUserDB($formulaire->get('email')->getData());
                 $mdpFormulaire = $formulaire->get('password')->getData();
- 
+
                 // Vérifier si le mdp est correct
                 $isMdpCorrect = $userPasswordHasher->isPasswordValid($userBd, $mdpFormulaire);
                 if($isMdpCorrect) {
@@ -157,7 +157,7 @@ class UserController extends AbstractController
                 return $this->redirectToRoute('home');
         
             }
- 
+
             // RENDU
             return $this->render('user/login.html.twig', [
                 'user' => $userBd,

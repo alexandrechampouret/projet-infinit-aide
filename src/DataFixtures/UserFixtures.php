@@ -9,17 +9,14 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserFixtures extends Fixture
 {
-    //PROPRIÉtER
+    //-----PROPRIÉtER------------//
     private $encoder;
-    //CONSTRUCTEUR 
+    //---------CONSTRUCTEUR-------------// 
     public function __construct(UserPasswordHasherInterface $userPassewordHasherInterface)
     {
         $this->encoder = $userPassewordHasherInterface;
     }
-    
-
-
-            //METHODES
+            //-------METHODES---------//
     public function load(ObjectManager $manager): void
     {
         $user = new User();
@@ -30,6 +27,7 @@ class UserFixtures extends Fixture
         $user->setAbonnementNewsletter('true');
         $password = $this->encoder->hashPassword($user, "pass");
         $user->setPassword($password);
+        $user->setIsVerified(true);
         $manager->persist($user);
         //
 
@@ -41,6 +39,7 @@ class UserFixtures extends Fixture
         $user->setAbonnementNewsletter('false');
         $password = $this->encoder->hashPassword($user, "pass");
         $user->setPassword($password);
+        $user->setIsVerified(true);
         $manager->persist($user);
 
         $manager->flush();

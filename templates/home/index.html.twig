@@ -17,7 +17,7 @@
 	<!--Embed-reponsive ect est la pour rendre la vidéo responsive -->
 	<br>
 	<br>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row mt-2">
 			<div class="col-11 col-md-4 pt-5 pb-3 d-flex justify-content-center">
 				<div class="embed-responsive embed-responsive-16by9">
@@ -70,7 +70,7 @@
 					<a href="{{ path('declarerundeces')}}" title="" target="_blank" style="color: black">Déclarer un décès </a>
 					</li>
 					<li>
-					<a href="{{ path('reperepratique')}}" title="" target="_blank" style="color: black">Les services funéraires</a>
+					<a href="{{ path('servicefuneraire')}}" title="" target="_blank" style="color: black">Les services funéraires</a>
 					</li>
 				</ul>
 			
@@ -85,7 +85,7 @@
 			<i class="fas fa-users"></i>
 		</div>
 		
-			<ul class="col-12 p1 col-md-4 pt-4 text-center">
+			<ul class="p1 col-12  col-md-4 pt-4 text-center">
 				<li>
 					<a href="#" class="exe text-uppercase" style="color: black;">Lignes d’écoute et de prévention générique
 					</a>
@@ -162,10 +162,11 @@
 	</figure>
 
 	<!--Fléche de retour en haut / d-flex utiliser pour placer la fléche a la gauche avec justify-content: end -->
+		<div class="container-fluid d-flex flex-start">
 			<div class="scroll_to_top">
 				<a href="#">
-					<i class="fas fa-arrow-circle-up d-flex mb-2 img" style="font-size: 40px; justify-content: end;"></i>
+					<i class="fas fa-arrow-circle-up d-flex mb-2 img w-50" style="font-size: 40px; justify-content: end;"></i>
 				</a>
 			</div>
-			
+		</div>
 {% endblock %}

@@ -22,8 +22,7 @@
 		rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
 		<!---  ##### CSS #######   -->
 		<link rel="stylesheet" href="{{ asset('css/style-front.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/js.css') }}"> 
-		{% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('css/js.css') }}"> {% block stylesheets %}{% endblock %}
 
 
 		</head>
@@ -48,28 +47,27 @@
 									</a>
 								</li>
 								<li class=" nav-item pe-2">
-									<a class="nav-link" href="#">Mon Espace</a>
+									<a class="nav-link" href="{{ path('profile')}}">Mon Espace</a>
 								</li>
 								<li class=" nav-item pe-2">
 									<a class="nav-link" href="{{ path('reperepratique')}}">Repères Pratiques</a>
 								</li>
-								{# <li class=" nav-item pe-5">
-																																									<a class="nav-link" href="#">Se faire Aider</a>
-																																								</li> #}
-								{# <li class="nav-item ms-auto"> #}
-
-
+								<li class=" nav-item pe-5">
+									<a class="nav-link" href="#">Se faire Aider</a>
+								</li>
+			
 								{#Si on est pas connecté on met en place un bouton de connexion sinon on met en place un bouton deconnexion#}
 
-									{% if app.user %}
-										<li class=" nav-item pe-6"> <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+								{% if app.user %}
+									<li class=" nav-item pe-6">
+										<a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
 									</li>
 								{% elseif not app.user %}
 									<li class=" nav-item pe-2">
-										<a class="nav-link" href="{{ path('inscription')}}">Inscription</a>
+										<a class="nav-link" href="{{ path('app_register')}}">Inscription</a>
 									</li>
 									<li class=" nav-item pe-6">
-										<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
+										<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
 									</li>
 								{% endif %}
 
