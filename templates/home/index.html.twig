@@ -150,16 +150,18 @@
 		</div>
 	</div>
 
-
+	
 	<figure class="container pt-5 ">
 		<div class="row border border-dark mt-3 pt-3 bg-warning">
-			<div class="col-12 col-md-12 text-center ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi et voluptate a! Adipisci est non expedita rem quaerat esse, nesciunt id eeque necessitatibus enim veritatis impedit odio! Qui vel debitis esse temporibus culpa ducimus consequuntur illo atque, labore placeat soluta recusandae? Perferendis vel assumenda aliquid repellat rem expedita deleniti voluptas voluptates sunt natus fugit, culpa tempora nesciunt quos maxime reiciendis hic? Deserunt, iure cupiditate.</div>
-			{# <cite class="text-center">Nom de l'auteur</cite> #}
+		{% for citasion in citasions %}
+			<div class="col-12 col-md-12 text-center "></div>
+			{{ citasion.description|raw }}
 			<figcaption class="blockquote-footer text-center pt-2">
 				Someone famous in
 				<cite title="Source Title">Source Title</cite>
 			</figcaption>
 		</div>
+		{% endfor %}
 	</figure>
 
 	<!--Fléche de retour en haut / d-flex utiliser pour placer la fléche a la gauche avec justify-content: end -->

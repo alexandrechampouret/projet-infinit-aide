@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CitasionRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,11 +14,12 @@ class HomeController extends AbstractController
     * @Route("/")
     * @Route("/home", name= "home")
     */
-    public function index(AuthenticationUtils $authenticationUtils): Response
+    public function index(AuthenticationUtils $authenticationUtils, CitasionRepository $citasionRepository): Response
     {
         
         return $this->render('home/index.html.twig', [
             'home' => 'HomeController',
+            'citasions' => $citasionRepository->findAll(),
         ]);
     }
 
