@@ -11,7 +11,7 @@
 	<br>
 	<br>
 	<br>
-	<h1>Liste Articles</h1>
+	<h1 class="text-center">Liste Articles</h1>
 
 	<div class="container">
 
@@ -21,8 +21,8 @@
 				<tr>
 					<td><img src="{{ asset('images/' ~ article.imagePath)}}" alt="" class="img-list-article">
 					</td>
-					<td>{{ article.titre}}</td>
-					<td>{{ article.description}}</td>
+					<td >{{ article.titre|raw}}</td>
+					<td>{{ article.description|raw}}</td>
 					<td>
 						<a href="{{ path('article-detail', {'id': article.id})}}" class="btn btn-dark">Détail</a>
 					</td>

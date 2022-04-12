@@ -152,14 +152,10 @@
 
 	
 	<figure class="container pt-5 ">
-		<div class="row border border-dark mt-3 pt-3 bg-warning">
+		<div class="row border border-dark mt-3 pt-3 bg-warning text-center">
 		{% for citasion in citasions %}
-			<div class="col-12 col-md-12 text-center "></div>
+			<div class="col-12 col-md-12  "></div>
 			{{ citasion.description|raw }}
-			<figcaption class="blockquote-footer text-center pt-2">
-				Someone famous in
-				<cite title="Source Title">Source Title</cite>
-			</figcaption>
 		</div>
 		{% endfor %}
 	</figure>

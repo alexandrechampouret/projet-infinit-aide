@@ -38,11 +38,12 @@ class AdminArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // déplacement d'image 
-            if ( 0 < $_FILES['article']['error'] ) {
+            if ( 0 < $_FILES['article']['error']['imagePath'] ) {
                 $this->addFlash('error', 'chargement non réussit');
             }else{
-                move_uploaded_file($_FILES['article']['tmp_name'], 'images/article/' . $_FILES['article']['name']);
+                move_uploaded_file($_FILES['article']['tmp_name']['imagePath'], 'images/article/' . $_FILES['article']['name']['imagePath']);
             }
+            $article->setImagePath($_FILES['article']['name']['imagePath']);
 
             $entityManager->persist($article);
             $entityManager->flush();
