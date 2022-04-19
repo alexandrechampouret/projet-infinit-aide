@@ -9,14 +9,21 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserFixtures extends Fixture
 {
-    //-----PROPRIÉtER------------//
+    //---------------------------//
+    //-------PROPRIÉtER----------//
+    //---------------------------//
+
     private $encoder;
+    //----------------------------------//
     //---------CONSTRUCTEUR-------------// 
+    //----------------------------------//
     public function __construct(UserPasswordHasherInterface $userPassewordHasherInterface)
     {
-        $this->encoder = $userPassewordHasherInterface;
+        
     }
-            //-------METHODES---------//
+            //---------------------------//
+            //---------METHODES----------//
+            //---------------------------//
     public function load(ObjectManager $manager): void
     {
         $user = new User();

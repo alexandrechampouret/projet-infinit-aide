@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="text-center">Les Associations</h1>
+<div class="container-fluid">
+
+		<table class="table table-striped">
+			{% for association in associations %}
+
+				<tr>
+					<td>{{ association.nom|raw }}</td>
+					<td >{{ association.adresse|raw }}</td>
+					<td>{{ association.numero|raw }}</td>
+					<td>{{ association.mail|raw }}</td>
+				</tr>
+			{% endfor %}
+
+		</table>
+	</div>
+<br>
+<br>
+{% endblock %}

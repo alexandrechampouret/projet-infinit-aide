@@ -18,8 +18,8 @@
         {% for citasion in citasions %}
         <div class="container">
             <tr>
-                <td>{{ citasion.id }}</td>
-                <td>{{ citasion.description }}</td>
+                <td>{{ citasion.id|raw }}</td>
+                <td>{{ citasion.description|raw }}</td>
                 <td>
                     <a href="{{ path('admin_citasion_show', {'id': citasion.id}) }}" class="btn btn-primary me-md-2 md-2 mb-md-0">show</a>
                     <a href="{{ path('admin_citasion_edit', {'id': citasion.id}) }}" class="btn btn-success mt-2">edit</a>
